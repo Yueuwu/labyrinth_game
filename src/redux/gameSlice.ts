@@ -18,10 +18,17 @@ const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
-
+        stepUp: state => {
+            const s = state.field
+            const find = s.find(e => e.status === 'character')
+            if (find){
+                let index: number = s.indexOf(find)
+                state.field[index]['position'] -= 4
+            }
+        }
     }
 })
 
 export const gameSelector = (state: RootState) => state.game
-export const {} = gameSlice.actions
+export const {stepUp} = gameSlice.actions
 export default gameSlice.reducer
