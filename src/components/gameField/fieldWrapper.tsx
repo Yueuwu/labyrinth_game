@@ -9,7 +9,7 @@ const FieldWrapper = () => {
     return (
         <div className={style.wrapper}>
             <div className={style.wrap}>
-                {field.map(cell => <Cell key={cell.position}/>)}
+                {field.map(cell => <Cell key={cell.position} position={cell.position} status={cell.status}/>)}
             </div>
         </div>
     );
