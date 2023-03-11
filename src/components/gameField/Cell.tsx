@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import style from '../styles/cell.module.css'
 import {cell} from "../../redux/gameSlice";
 
-const Cell: React.FC<cell> = React.memo(({position, status}) => {
+const Cell: React.FC<cell> = ({position, status}) => {
 
     const cellColor = () => {
         if (status === 'empty'){
@@ -18,10 +18,10 @@ const Cell: React.FC<cell> = React.memo(({position, status}) => {
 
     return (
         <div className={style.wrapper} style={cellColor()}>
-            {position}
+            {position} - {status}
         </div>
     );
-});
+};
 
 
 

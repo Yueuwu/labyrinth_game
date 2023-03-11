@@ -6,7 +6,6 @@ import Cell from "./Cell";
 
 const FieldWrapper = () => {
     const {field} = useSelector(gameSelector)
-
     return (
         <div className={style.wrapper}>
             <div className={style.wrap}>

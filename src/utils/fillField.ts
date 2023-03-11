@@ -4,7 +4,7 @@ export const fillField = (iterationsNum: number): cell[] => {
     let filled: cell[] = []
     let isCharacter = false
     let isLoot = false
-    for (let i = 1; i < iterationsNum + 1; i++){
+    for (let i = 0; i < iterationsNum; i++){
         let random = Math.floor(Math.random() * 4)
         let status: cell['status'] = 'empty'
         if (!random){

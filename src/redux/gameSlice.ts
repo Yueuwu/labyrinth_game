@@ -8,7 +8,9 @@ export type cell = {
 }
 interface gameState {
     field: cell[]
+
 }
+
 
 const initialState: gameState = {
     field: fillField(16)
@@ -19,16 +21,60 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         stepUp: state => {
-            const s = state.field
-            const find = s.find(e => e.status === 'character')
+            const find = state.field.find(e => e.status === 'character')
             if (find){
-                let index: number = s.indexOf(find)
-                state.field[index]['position'] -= 4
+                let index: number = state.field.indexOf(find)
+                if (find['position'] > 3 && (state.field[index-4]['status'] === 'empty' || state.field[index-4]['status'] === 'loot')){
+                    state.field[index-4]['position'] += 4
+                    state.field[index]['position'] -= 4
+                    state.field = state.field.sort((function(a, b) {
+                        return a.position - b.position;
+                    }))
+                }
             }
-        }
+        },
+        stepDown: state => {
+            const find = state.field.find(e => e.status === 'character')
+            if (find){
+                let index: number = state.field.indexOf(find)
+                if (find['position'] < 14 && (state.field[index+4]['status'] === 'empty' || state.field[index+4]['status'] === 'loot')){
+                    state.field[index+4]['position'] -= 4
+                    state.field[index]['position'] += 4
+                    state.field = state.field.sort((function(a, b) {
+                        return a.position - b.position;
+                    }))
+                }
+            }
+        },
+        stepRight: state => {
+            const find = state.field.find(e => e.status === 'character')
+            if (find){
+                let index: number = state.field.indexOf(find)
+                if (find['position'] !== 15 && (state.field[index+1]['status'] === 'empty' || state.field[index+1]['status'] === 'loot')){
+                    state.field[index+1]['position'] -= 1
+                    state.field[index]['position'] += 1
+                    state.field = state.field.sort((function(a, b) {
+                        return a.position - b.position;
+                    }))
+                }
+            }
+        },
+        stepLeft: state => {
+            const find = state.field.find(e => e.status === 'character')
+            if (find){
+                let index: number = state.field.indexOf(find)
+                if (find['position'] !== 0 && (state.field[index-1]['status'] === 'empty' || state.field[index-1]['status'] === 'loot')){
+                    state.field[index-1]['position'] += 1
+                    state.field[index]['position'] -= 1
+                    state.field = state.field.sort((function(a, b) {
+                        return a.position - b.position;
+                    }))
+                }
+            }
+        },
     }
 })
 
 export const gameSelector = (state: RootState) => state.game
-export const {stepUp} = gameSlice.actions
+export const {stepUp, stepDown, stepRight, stepLeft} = gameSlice.actions
 export default gameSlice.reducer
