@@ -31,7 +31,7 @@ const App: React.FC = () => {
             case 'ArrowLeft': left(); document.removeEventListener('keydown', buttonClickHandler); break
         }
     }
-    const {field} = useSelector(gameSelector)
+    const {isPassed} = useSelector(gameSelector)
     return (
         <div >
             <FieldWrapper/>
