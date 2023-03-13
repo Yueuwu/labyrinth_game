@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import {gameSelector, stepDown, stepLeft, stepRight, stepUp} from "./redux/gameSlice";
 import FieldWrapper from "./components/gameField/fieldWrapper";
 import './App.css'
+import style from './App.module.css'
 
 const App: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -23,7 +24,6 @@ const App: React.FC = () => {
         document.addEventListener('keydown', buttonClickHandler)
     })
     const buttonClickHandler = (e: any) => {
-        console.log('Click: ', e.key)
         switch (e.key){
             case 'ArrowUp': up(); document.removeEventListener('keydown', buttonClickHandler); break
             case 'ArrowDown': down(); document.removeEventListener('keydown', buttonClickHandler); break
@@ -32,13 +32,24 @@ const App: React.FC = () => {
         }
     }
     const {isPassed} = useSelector(gameSelector)
+    isPassed && window.location.reload()
     return (
-        <div >
+        <div>
             <FieldWrapper/>
-            <button style={{fontSize: 40, color: 'black'}} onClick={up}>Up</button>
-            <button style={{fontSize: 40, color: 'black'}} onClick={down}>Down</button>
-            <button style={{fontSize: 40, color: 'black'}} onClick={right}>Right</button>
-            <button style={{fontSize: 40, color: 'black'}} onClick={left}>Left</button>
+            <div className={style.wrapper}>
+                <div className={style.wrap}>
+                    <div className={style.btnBlock}>
+                        <button className={style.btn} onClick={up}>Up</button>
+                    </div>
+                    <div className={style.middleBtnBlock}>
+                        <button className={style.btn} onClick={left}>Left</button>
+                        <button className={style.btn} onClick={right}>Right</button>
+                    </div>
+                    <div className={style.btnBlock}>
+                        <button className={style.btn} onClick={down}>Down</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
