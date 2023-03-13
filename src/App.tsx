@@ -25,13 +25,14 @@ const App: React.FC = () => {
     })
     const buttonClickHandler = (e: any) => {
         switch (e.key){
-            case 'ArrowUp': up(); document.removeEventListener('keydown', buttonClickHandler); break
+            case 'ArrowUp':  up(); document.removeEventListener('keydown', buttonClickHandler); break
             case 'ArrowDown': down(); document.removeEventListener('keydown', buttonClickHandler); break
             case 'ArrowRight': right(); document.removeEventListener('keydown', buttonClickHandler); break
             case 'ArrowLeft': left(); document.removeEventListener('keydown', buttonClickHandler); break
         }
     }
-    const {isPassed} = useSelector(gameSelector)
+    const {isPassed, field} = useSelector(gameSelector)
+    console.log(field)
     isPassed && window.location.reload()
     return (
         <div>

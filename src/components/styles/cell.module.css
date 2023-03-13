@@ -1,4 +1,13 @@
 .wrapper{
     width: 25%;
-    border: 1px solid #000000;
+    border: 1px solid rgba(178, 147, 234, 0.58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+.img{
+    max-width: 1vmin;
+    transform: scale(10);
+    background-color: rgba(255, 255, 255, 0);
 }

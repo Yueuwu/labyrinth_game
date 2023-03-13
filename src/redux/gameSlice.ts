@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "./store";
 import {fillField} from "../utils/fillField";
 
+
 export type cell = {
     position: number
     status: 'empty' | 'block' | 'character' | 'loot'
