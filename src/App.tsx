@@ -5,6 +5,8 @@ import {gameSelector, stepDown, stepLeft, stepRight, stepUp} from "./redux/gameS
 import FieldWrapper from "./components/gameField/fieldWrapper";
 import './App.css'
 import style from './App.module.css'
+import SideBar from "./components/UI/SideBar";
+
 
 const App: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -32,10 +34,10 @@ const App: React.FC = () => {
         }
     }
     const {isPassed, field} = useSelector(gameSelector)
-    console.log(field)
-    isPassed && window.location.reload()
+
     return (
-        <div>
+        <div className='App'>
+            <SideBar/>
             <FieldWrapper/>
             <div className={style.wrapper}>
                 <div className={style.wrap}>

@@ -1,5 +1,4 @@
-*{padding: 0;margin: 0;border: 0;
-    background-color: rgba(178, 147, 234, 0.58);}
+*{padding: 0;margin: 0;border: 0;}
 *,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
@@ -15,3 +14,6 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
+.App {
+    background-color: rgba(178, 147, 234, 0.58)
+}

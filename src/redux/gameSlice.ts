@@ -10,13 +10,12 @@ export type cell = {
 interface gameState {
     field: cell[],
     isPassed: boolean
-
 }
 
 
 const initialState: gameState = {
-    field: fillField(16),
-    isPassed: false
+    field: fillField(16, 1),
+    isPassed: false,
 }
 
 const gameSlice = createSlice({
@@ -33,6 +32,7 @@ const gameSlice = createSlice({
                         state.isPassed = true
                         state.field[index - 4]['position'] += 4
                         state.field[index]['position'] -= 4
+                        state.field = fillField(16)
                     }else {
                         state.field[index - 4]['position'] += 4
                         state.field[index]['position'] -= 4
@@ -53,6 +53,7 @@ const gameSlice = createSlice({
                         state.isPassed = true
                         state.field[index + 4]['position'] -= 4
                         state.field[index]['position'] += 4
+                        state.field = fillField(16)
                     }else {
                         state.field[index + 4]['position'] -= 4
                         state.field[index]['position'] += 4
@@ -73,6 +74,7 @@ const gameSlice = createSlice({
                         state.isPassed = true
                         state.field[index+1]['position'] -= 1
                         state.field[index]['position'] += 1
+                        state.field = fillField(16)
                     }else{
                     state.field[index+1]['position'] -= 1
                     state.field[index]['position'] += 1
@@ -93,6 +95,7 @@ const gameSlice = createSlice({
                         state.isPassed = true
                         state.field[index-1]['position'] += 1
                         state.field[index]['position'] -= 1
+                        state.field = fillField(16)
                     }else{
                     state.field[index-1]['position'] += 1
                     state.field[index]['position'] -= 1
