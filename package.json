@@ -1,7 +1,7 @@
 {
   "name": "labyrinth",
   "version": "0.1.0",
-  "homepage": "https://yueuwu.github.io/labyrinth",
+  "homepage": "https://yueuwu.github.io/labyrinth_game/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
