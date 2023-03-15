@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/labyrinth/static/css/main.008ab543.css",
-    "main.js": "/labyrinth/static/js/main.86575edf.js",
-    "static/js/787.4b5f83c9.chunk.js": "/labyrinth/static/js/787.4b5f83c9.chunk.js",
-    "static/media/swordsman.png": "/labyrinth/static/media/swordsman.17eb847363638308d4c6.png",
-    "static/media/route.png": "/labyrinth/static/media/route.2e733d43b4f3ed1002a0.png",
-    "static/media/loot.png": "/labyrinth/static/media/loot.d1e37910e37f4cfa1e10.png",
-    "static/media/endless.png": "/labyrinth/static/media/endless.3d2b4f9ef2ddbeb3e987.png",
-    "static/media/reset.png": "/labyrinth/static/media/reset.2d0f6fac658d8386584e.png",
-    "static/media/wall.png": "/labyrinth/static/media/wall.a2e3eb00af5356585ff4.png",
-    "index.html": "/labyrinth/index.html",
-    "main.008ab543.css.map": "/labyrinth/static/css/main.008ab543.css.map",
-    "main.86575edf.js.map": "/labyrinth/static/js/main.86575edf.js.map",
-    "787.4b5f83c9.chunk.js.map": "/labyrinth/static/js/787.4b5f83c9.chunk.js.map"
+    "main.css": "/labyrinth_game/static/css/main.008ab543.css",
+    "main.js": "/labyrinth_game/static/js/main.740f143f.js",
+    "static/js/787.4b5f83c9.chunk.js": "/labyrinth_game/static/js/787.4b5f83c9.chunk.js",
+    "static/media/swordsman.png": "/labyrinth_game/static/media/swordsman.17eb847363638308d4c6.png",
+    "static/media/route.png": "/labyrinth_game/static/media/route.2e733d43b4f3ed1002a0.png",
+    "static/media/loot.png": "/labyrinth_game/static/media/loot.d1e37910e37f4cfa1e10.png",
+    "static/media/endless.png": "/labyrinth_game/static/media/endless.3d2b4f9ef2ddbeb3e987.png",
+    "static/media/reset.png": "/labyrinth_game/static/media/reset.2d0f6fac658d8386584e.png",
+    "static/media/wall.png": "/labyrinth_game/static/media/wall.a2e3eb00af5356585ff4.png",
+    "index.html": "/labyrinth_game/index.html",
+    "main.008ab543.css.map": "/labyrinth_game/static/css/main.008ab543.css.map",
+    "main.740f143f.js.map": "/labyrinth_game/static/js/main.740f143f.js.map",
+    "787.4b5f83c9.chunk.js.map": "/labyrinth_game/static/js/787.4b5f83c9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.008ab543.css",
-    "static/js/main.86575edf.js"
+    "static/js/main.740f143f.js"
   ]
 }
