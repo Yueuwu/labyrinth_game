@@ -1,13 +1,15 @@
 import {cell} from "../redux/gameSlice";
-import {FirstLevel} from "./levels/FirstLevel";
+import {FirstLevel, SecondLevel, ThirdLevel} from "./Levels";
 
-export const fillField = (iterationsNum: number, level?: number): cell[] => {
+export const fillField = (iterationsNum?: number, level?: number): cell[] => {
     let filled: cell[] = []
     if (level){
         switch (level){
             case 1: return FirstLevel
+            case 2: return SecondLevel
+            case 3: return ThirdLevel
         }
-    }else{
+    }else if(iterationsNum){
         let isCharacter = false
         let isLoot = false
         for (let i = 0; i < iterationsNum; i++){
@@ -24,7 +26,9 @@ export const fillField = (iterationsNum: number, level?: number): cell[] => {
             }
             filled.push({position: i, status: status})
         }
+        if (!isCharacter){
+            fillField(iterationsNum)
+        }
     }
-
     return filled
 }

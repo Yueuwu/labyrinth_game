@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useAppDispatch} from "./redux/store";
 import {useSelector} from "react-redux";
-import {gameSelector, stepDown, stepLeft, stepRight, stepUp} from "./redux/gameSlice";
+import {chooseLevel, gameSelector, stepDown, stepLeft, stepRight, stepUp, chooseLevelType, refillField} from "./redux/gameSlice";
 import FieldWrapper from "./components/gameField/fieldWrapper";
 import './App.css'
-import style from './App.module.css'
 import SideBar from "./components/UI/SideBar";
+import ButtonsGroup from "./components/UI/ButtonsGroup";
+import Refill from "./components/UI/Refill";
+
 
 
 const App: React.FC = () => {
@@ -22,6 +24,12 @@ const App: React.FC = () => {
     const left = () => {
         dispatch(stepLeft())
     }
+    const levelSelector = (chosen: chooseLevelType) => {
+        dispatch(chooseLevel(chosen))
+    }
+    const refill = () => {
+        dispatch(refillField())
+    }
     useEffect(() => {
         document.addEventListener('keydown', buttonClickHandler)
     })
@@ -33,26 +41,14 @@ const App: React.FC = () => {
             case 'ArrowLeft': left(); document.removeEventListener('keydown', buttonClickHandler); break
         }
     }
-    const {isPassed, field} = useSelector(gameSelector)
+    const {field} = useSelector(gameSelector)
 
     return (
         <div className='App'>
-            <SideBar/>
+            <SideBar levelSelector={levelSelector}/>
             <FieldWrapper/>
-            <div className={style.wrapper}>
-                <div className={style.wrap}>
-                    <div className={style.btnBlock}>
-                        <button className={style.btn} onClick={up}>Up</button>
-                    </div>
-                    <div className={style.middleBtnBlock}>
-                        <button className={style.btn} onClick={left}>Left</button>
-                        <button className={style.btn} onClick={right}>Right</button>
-                    </div>
-                    <div className={style.btnBlock}>
-                        <button className={style.btn} onClick={down}>Down</button>
-                    </div>
-                </div>
-            </div>
+            <ButtonsGroup up={up} down={down} right={right} left={left}/>
+            <Refill refill={refill}/>
         </div>
     );
 }

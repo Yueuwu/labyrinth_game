@@ -4,8 +4,17 @@ import icon from '../../assets/route.png'
 import endless from '../../assets/endless.png'
 import menu from '../../assets/menu.png'
 import style from '../styles/sidebar.module.css'
+import {chooseLevelType} from "../../redux/gameSlice";
 
-const SideBar = () => {
+type props = {
+    levelSelector: (chosen: chooseLevelType)=> void
+}
+const SideBar: React.FC<props> = ({levelSelector}) => {
+
+    const selectLevel = (x: number) => {
+        levelSelector({level: x})
+    }
+
     type Anchor = 'right';
     const [state, setState] = React.useState({
         right: false,
@@ -45,7 +54,7 @@ const SideBar = () => {
                         </Box>
                         :
                         <ListItem key={index} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton onClick={()=>selectLevel(index)}>
                                 {
                                     text !== 'Endless Mode' ?
                                         <img className={style.img} src={icon}/>
